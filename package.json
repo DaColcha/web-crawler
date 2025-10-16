@@ -1,0 +1,12 @@
+{
+  "name": "web-crawler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DaColcha/web-crawler.git",
+  "author": "Alejandra Colcha <da.colcha@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.8.0",
+    "typescript": "^5.9.3"
+  }
+}
