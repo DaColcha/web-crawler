@@ -2,11 +2,16 @@
   "name": "web-crawler",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": "https://github.com/DaColcha/web-crawler.git",
   "author": "Alejandra Colcha <da.colcha@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^24.8.0",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2"
   }
 }
