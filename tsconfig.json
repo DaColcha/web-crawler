@@ -1,11 +1,10 @@
 {
-
   "compilerOptions": {
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "ESNext",
     "types": [],
-    "rootDir": "./src", 
-
+    
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -24,5 +23,6 @@
     "noImplicitAny": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true
-  }
+  },
+  "include": ["src/**/*.ts"],
 }
