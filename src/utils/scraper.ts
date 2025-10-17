@@ -22,7 +22,11 @@ function scrapeNews(html: string): HackerNewsItem[] {
         const points = $(element).next().find('span.score').text().replace(' points', '').trim();
         const comments = $(element).next().find('a').last().text().replace('comments', '').trim();
 
-        HackerNews.push({ rank: +rank, title: title, points: +points, comments:  Number.isNaN(+comments) ? 0 : +comments });
+        HackerNews.push({ 
+            rank: +rank, 
+            title: title, 
+            points: Number.isNaN(+points) ? 0 : +points, 
+            comments:  Number.isNaN(+comments) ? 0 : +comments });
     });
 
     return HackerNews;
