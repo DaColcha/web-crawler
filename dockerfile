@@ -1,3 +1,4 @@
+# Install dependencies 
 FROM node:22-alpine3.21 AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -7,7 +8,8 @@ RUN yarn install --frozen-lockfile
 # Build the app with cache dependencies
 FROM node:22-alpine3.21 AS builder
 WORKDIR /app
-#copiamos las dependencias del contenedor deps
+
+# Copy dependencies from deps stage
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN yarn build
