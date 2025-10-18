@@ -1,4 +1,4 @@
-import HackerNewsItem  from '../types/index.ts';
+import type HackerNewsItem  from '../types/index.js';
 
 function countWords(text: string): number {
     const words = text.match(/\b[0-9A-Za-z]+(?:['-.][0-9A-Za-z]+)*\b/g);

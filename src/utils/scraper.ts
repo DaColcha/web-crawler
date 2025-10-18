@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { load } from 'cheerio';
-import type HackerNewsItem from '../types/index.ts';
+import type HackerNewsItem from '../types/index.js';
 
 async function getSite(url: string): Promise<string> {
     try {
