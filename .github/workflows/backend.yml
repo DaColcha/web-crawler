@@ -1,0 +1,64 @@
+#Workflow to test the backend, build docker image and push to registry
+name: Backend CI
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+      - 'dockerfile'
+      - '.github/workflows/backend.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+      - 'dockerfile'
+      - '.github/workflows/backend.yml'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test --coverage
+
+      - name: SonarQube Scan  
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+        with:
+          args:
+            -Dsonar.projectKey=DaColcha_web-crawler
+            -Dsonar.sources=src
+            -Dsonar.tests=test
+            
+      - name: Build Docker image
+        run: docker build -t dacolcha/web-crawler-api:latest .  
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Push Docker image to Docker Hub
+        run: docker push dacolcha/web-crawler-api:latest
+
