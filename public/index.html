@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Web Crawler</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="script.js"></script>
 </head>
 <body>
 <section class="header">
@@ -16,7 +17,22 @@
     </div>
 </section>
 <section class="main">
-    <button id="scrape-button">Scrape News</button>
+    <button id="scrape-button" onclick="scrapeNews()">Scrape News</button>
+    <div class="filters">
+        
+        <div class="sort-container">
+            <button class="filter-button" id="more-than" onclick="filterByWordsMoreThan(5)">More than 5 words</button>
+            <button class="filter-button" id="less-than" onclick="filterByWordsLessThan(5)">Less than 5 words</button>
+            <label for="sort-select" id="sort-label"></label>
+            <select id="sort-select" onchange="sortByOrder(this.value)" style="display:none;">
+                <option value=""></option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+    </div>
+
+    <p id="current-state"></p>
     <div id="news-container"></div>
 </section>
 
