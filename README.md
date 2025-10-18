@@ -2,7 +2,7 @@
 
 A web-based application that scrapes and filters news from [Hacker News](https://news.ycombinator.com/), built with Node.js, Express, and TypeScript.
 
-**Deployed Application:** [WebCrawler by Alejandra Colcha](https://dacolcha.github.io/web-crawler/)
+**Deployed Application:** [WebCrawler by Alejandra Colcha](https://dacolcha.github.io/web-crawler/) *(wait for 10 seconds on your first request)*
 
 **Docker Image:** `docker pull dacolcha/web-crawler-api:latest`
 
