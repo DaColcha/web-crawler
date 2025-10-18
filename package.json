@@ -22,7 +22,7 @@
     "express": "^5.1.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "start": "node src/main.ts",
     "build": "tsc"
   }
