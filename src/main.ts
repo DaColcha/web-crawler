@@ -1,6 +1,12 @@
-import { getSite, scrapeNews } from "./utils/scraper.ts";
+import express from 'express';
+import { crawlerRouter } from './routes/crawler.route.js';
 
-const url = 'https://news.ycombinator.com/';
-const news = scrapeNews(await getSite(url));
+const app = express();
+const port = process.env.PORT || 3000;
 
-console.log(news);
+app.use(express.json());
+app.use('/', crawlerRouter);
+
+app.listen(port, () => {
+  console.log(`Server is running at port ${port}`);
+});
