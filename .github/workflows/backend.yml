@@ -47,9 +47,10 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=DaColcha_web-crawler
+            -Dsonar.organization=dacolcha16
             -Dsonar.sources=src
             -Dsonar.tests=test
-            
+
       - name: Build Docker image
         run: docker build -t dacolcha/web-crawler-api:latest .  
 
