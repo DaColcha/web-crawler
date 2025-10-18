@@ -7,6 +7,7 @@
   "author": "Alejandra Colcha <da.colcha@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.8.0",
     "jest": "^30.2.0",
@@ -17,6 +18,7 @@
     "@types/express": "^5.0.3",
     "axios": "^1.12.2",
     "cheerio": "^1.1.2",
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   },
   "scripts": {
